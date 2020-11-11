@@ -24,3 +24,23 @@ checkPincode("400088B");        // Restrict the PIN code from taking alphabets o
 
 checkPincode("400 088");        // Make sure 400 088 is also valid along with 400088
 
+let validateEmail = (email) => {
+    let EmailRegex = RegExp("^[a-z]{3,}$");
+    if (EmailRegex.test(email))
+        return "Valid Email!!";
+    else throw "Invalid Email!!";
+};
+
+let checkEmail = (email) => {
+    console.log("Is " + email + " email Valid : ");
+    try {
+
+        console.log(validateEmail(email));
+    }
+    catch (error) {
+        console.error(error);
+    }
+};
+
+// validate the mandatory parts
+checkEmail("abc");
