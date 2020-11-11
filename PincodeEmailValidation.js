@@ -5,9 +5,20 @@ let validatePincode = (pincode) => {
     else throw "Invalid Pincode!!";
 };
 
+console.log("Is 400088 pincode Valid : ");
 try {
-    console.log("Is 400088 pincode Valid : " + validatePincode("400088"));
+
+    console.log(validatePincode("400088"));
 }
 catch (error) {
     console.error(error);
 }
+
+console.log("Is A400088 pincode Valid : ");
+try {
+    console.log(validatePincode("A400088"));
+}
+catch (error) {
+    console.error(error);
+}
+
