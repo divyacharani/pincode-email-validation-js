@@ -1,5 +1,5 @@
 let validatePincode = (pincode) => {
-    let pincodeRegex = RegExp("^[1-9]{1}[0-9]{5}$");
+    let pincodeRegex = RegExp("^[1-9]{1}[0-9]{2}[\\s]?[0-9]{3}$");
     if (pincodeRegex.test(pincode))
         return "Valid Pincode!!";
     else throw "Invalid Pincode!!";
@@ -28,6 +28,15 @@ catch (error) {
 console.log("Is 400088B pincode Valid : ");
 try {
     console.log(validatePincode("400088B"));
+}
+catch (error) {
+    console.error(error);
+}
+
+// Make sure 400 088 is also valid along with 400088
+console.log("Is 400 088 pincode Valid : ");
+try {
+    console.log(validatePincode("400 088"));
 }
 catch (error) {
     console.error(error);
