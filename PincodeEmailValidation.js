@@ -25,7 +25,7 @@ checkPincode("400088B");        // Restrict the PIN code from taking alphabets o
 checkPincode("400 088");        // Make sure 400 088 is also valid along with 400088
 
 let validateEmail = (email) => {
-    let EmailRegex = RegExp("^[a-z]{3,}[@][a-z]{1,}$");
+    let EmailRegex = RegExp("^[a-z]{3,}[@a-z]{1,}[.a-z]{2,}$");
     if (EmailRegex.test(email))
         return "Valid Email!!";
     else throw "Invalid Email!!";
@@ -42,5 +42,5 @@ let checkEmail = (email) => {
     }
 };
 
-// Ensure @ and validate the mandatory 2nd part
-checkEmail("abc@bridgelabz");
+// Ensure “.” after bridgelabz and validate the mandatory 3rd part
+checkEmail("abc@bridgelabz.co");
