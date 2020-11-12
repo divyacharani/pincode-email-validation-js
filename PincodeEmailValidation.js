@@ -25,7 +25,7 @@ checkPincode("400088B");        // Restrict the PIN code from taking alphabets o
 checkPincode("400 088");        // Make sure 400 088 is also valid along with 400088
 
 let validateEmail = (email) => {
-    let EmailRegex = RegExp("^[\\w]+(?:[_+-\\.][\\w]+)*@(?=[a-z]+\\.)(?=[a-z]{2,})");
+    let EmailRegex = RegExp("^[\\w]+(?:[_+-\\.][\\w]+)*@(?:[a-z]+\\.){1,2}(?:[a-z]{2,})?$");
     if (EmailRegex.test(email))
         return "Valid Email!!";
     else throw "Invalid Email!!";
@@ -41,9 +41,18 @@ let checkEmail = (email) => {
     }
 }
 
-// Make sure only following are valid special characters _,+, -,. proceeding to optional part
-checkEmail("abc.xyz@bridgelabz.co");    // Valid
-checkEmail("abc@bridgelabz.co");        // Valid
-checkEmail("abc-100@yahoo.com");        // Valid
-checkEmail("abc..2002@gmail.com");      // Invalid
-checkEmail("abc@abc@gmail.com");        // Invalid
+// Validate Email
+// Valid emails
+checkEmail("abc@yahoo.com");
+checkEmail("abc-100@yahoo.com");
+checkEmail("abc.100@yahoo.com");
+checkEmail("abc111@abc.com");
+checkEmail("abc-100@abc.net");
+checkEmail("abc.100@abc.com.au");
+
+// Invalid emails
+checkEmail("abc");
+checkEmail("abc@.com.my");
+checkEmail("abc123@gmail.a");
+checkEmail("abc123@.com");
+checkEmail("abc123@.com.com");
