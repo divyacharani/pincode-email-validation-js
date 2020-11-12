@@ -25,12 +25,11 @@ checkPincode("400088B");        // Restrict the PIN code from taking alphabets o
 checkPincode("400 088");        // Make sure 400 088 is also valid along with 400088
 
 let validateEmail = (email) => {
-    let EmailRegex = RegExp("^[a-z]{3,}[@a-z]{1,}[.a-z]{2,}$");
+    let EmailRegex = RegExp("^[\\w]+(?:[_+-\\.][\\w]+)*@(?=[a-z]+\\.)(?=[a-z]{2,})");
     if (EmailRegex.test(email))
         return "Valid Email!!";
     else throw "Invalid Email!!";
-};
-
+}
 let checkEmail = (email) => {
     console.log("Is " + email + " email Valid : ");
     try {
@@ -40,7 +39,11 @@ let checkEmail = (email) => {
     catch (error) {
         console.error(error);
     }
-};
+}
 
-// Ensure “.” after bridgelabz and validate the mandatory 3rd part
-checkEmail("abc@bridgelabz.co");
+// Make sure only following are valid special characters _,+, -,. proceeding to optional part
+checkEmail("abc.xyz@bridgelabz.co");    // Valid
+checkEmail("abc@bridgelabz.co");        // Valid
+checkEmail("abc-100@yahoo.com");        // Valid
+checkEmail("abc..2002@gmail.com");      // Invalid
+checkEmail("abc@abc@gmail.com");        // Invalid
